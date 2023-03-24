@@ -22,7 +22,11 @@ router.patch("/verifyUser/:verificationToken", protect, verifyUser);
 router.post("/forgotPassword", forgotPassword);
 router.patch("/resetpassword/:resetToken", resetpassword);
 router.patch("/changePassword", protect, changePassword);
+
+// sendLoginCode
 router.post("/sendLoginCode/:email", sendLoginCode);
+
+
 router.post("/loginWithCode/:email", loginWithCode);
 
 

@@ -159,6 +159,7 @@ const loginUser = asyncHandler(async (req, res) => {
 
 // Send Login Code khi đăng nhập bằng máy khác yêu cầu cần phải nhập mã ở gmail
 const sendLoginCode = asyncHandler(async (req, res) => {
+    // lấy dư liệu từ link
     const { email } = req.params;
     const user = await User.findOne({ email });
 
@@ -182,10 +183,10 @@ const sendLoginCode = asyncHandler(async (req, res) => {
     const decryptedLoginCode = cryptr.decrypt(loginCode);
 
     // Send Login Code
-    const subject = "Login Access Code - AUTH:Z";
+    const subject = "Login Access Code";
     const send_to = email;
     const sent_from = process.env.EMAIL_USER;
-    const reply_to = "noreply@zino.com";
+    const reply_to = "chieens147@gmail.com";
     const template = "loginCode";
     const name = user.name;
     const link = decryptedLoginCode;
